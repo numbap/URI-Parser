@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////
+// THINKR - URI MAPPER VARIABLE
+////////////////////////////////////////////////////////////////
+// By Patrick Jobin at Thinkr Digital
+// patrick@thinkr.com
+////////////////////////////////////////////////////////////////
+// This custom-variable will take the URL from the Click URL Variable
+// and extract the protocol. This action can then be labelled and
+// exported to parent tags. 
+// For example, they could be used to easily configure tracking for
+// dozens of Google Analytics goals using a single Tag. 
+// Multiple URIs can share the same label for categorization. 
+// ex: FTP and SFTP can both be grouped into a FILETRANSFER category
+// In order to use this variable, Click URL must be enabled
+// There is an additional filter for Google Maps shortlink URLs,
+// for tracking address clicks
+////////////////////////////////////////////////////////////////
+function(){
+  console.log({{Click URL}}.split(":")[0]);
+  switch({{Click URL}}.split(":")[0]) {
+    case "tel":
+    console.log("Phone");
+      // Phone Number
+      return "TEL"
+    case "mailto":
+      // Email Address
+      return "MAILTO"
+    case "apt":
+      // Debian APT
+      return "APT"
+    case "bitcoin":
+      // Bitcoin
+      return "BITCOIN"
+    case "bitcoincash":
+      // Bitcoin Cash
+      return "BITCOINCASH"
+    case "ws":
+      // WebSocket
+      return "WEBSOCKET"
+    case "wss":
+      // WebSocket Secure
+      return "WEBSOCKETSECURE"
+    case "calculator":
+      // Window Calculator
+      return "CALCULATOR"
+    case "callto":
+      // Skype
+      return "CALLTO"
+    case "chrome":
+      // Mozilla Browser Settings
+      return "CHROME"
+    case "chrome-extension":
+      // Installed Chrome Extension Settings
+      return "CHROMEEXT"
+     case "facetime":
+      // Apple Facetime
+      return "FACETIME"
+     case "mailto":
+      // Apple Facetime
+      return "Email"
+     case "file":
+      // Local Hard Drive Resource
+      return "FILE"
+     case "ftp":
+      // File Transfer Protocol
+      return "FTP"
+     case "ipp":
+      // Internet Printing Protocol
+      return "IPP"
+     case "lastfm":
+      // Radio Streaming
+      return "LASTFM"
+     case "market":
+      // Google Play
+      return "MARKET"
+     case "mongodb":
+      // Mongo DB
+      return "MONGODB"
+     case "maps":
+      // Mapping Application
+      return "MAPS"
+     case "ms-excel":
+      // Open Using MS Excel
+      return "MSEXCEL"
+     case "payment":
+      // Locally-Installed Payment App
+      return "PAYMENT"
+     case "proxy":
+      // Proxy
+      return "PROXY"
+     case "res":
+      // Optain Resource From Module
+      return "RES"
+     case "sftp":
+      // Secure FTP
+      return "SFTP"
+     case "skype":
+      // Skype
+      return "SKYPE"
+     case "spotify":
+      // Music Streaming
+      return "SPOTIFY"
+     case "ssh":
+      // Telnet
+      return "SSH"
+     case "steam":
+      // Online Gaming
+      return "STEAM"
+     case "udp":
+      // BitTorrent
+      return "UDP"
+     case "view-source":
+      // View Source Code of URL
+      return "VIEWSOURCE"
+     case "webcal":
+      // Calendar Invite
+      return "WEBCAL"
+     default:
+      console.log("HTML");
+      return {{Click URL}}.startsWith("https://goo.gl/maps/") ? "Map" : "HTML";
+  }
+
+  return "Unknown Error";
+}
