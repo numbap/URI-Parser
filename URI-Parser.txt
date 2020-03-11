@@ -55,9 +55,6 @@ function(){
      case "facetime":
       // Apple Facetime
       return "FACETIME"
-     case "mailto":
-      // Apple Facetime
-      return "Email"
      case "file":
       // Local Hard Drive Resource
       return "FILE"
@@ -117,7 +114,7 @@ function(){
       return "WEBCAL"
      default:
       console.log("HTML");
-      return {{Click URL}}.startsWith("https://goo.gl/maps/") ? "Map" : "HTML";
+      return {{Click URL}}.startsWith("https://goo.gl/maps/") ? "MAP" : "HTML";
   }
 
   return "Unknown Error";
